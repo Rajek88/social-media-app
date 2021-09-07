@@ -6,6 +6,9 @@ const expressLayouts = require('express-ejs-layouts');
 app.use(expressLayouts);
 app.use(express.static('./assets'));
 
+//set up database
+const db = require('./config/mongoose');
+
 //set up view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');

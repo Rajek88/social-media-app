@@ -10,5 +10,6 @@ router.get('/timeline', usersController.timeline);
 router.get('/signin', usersController.signin);
 router.get('/signup', usersController.signup);
 router.post('/create', usersController.create);
+router.post('/createSession', usersController.createSession);
 
 module.exports = router;

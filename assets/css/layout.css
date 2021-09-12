@@ -1,7 +1,14 @@
 body{
     margin: 0%;
     padding: 0%;
-    background-color: #3f3f3f;
-    color: aliceblue;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #181818;
+    color: rgb(194, 194, 194);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }

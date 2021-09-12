@@ -7,5 +7,8 @@ router.get('/', function(req, res){
 });
 router.get('/profile', usersController.profile);
 router.get('/timeline', usersController.timeline);
+router.get('/signin', usersController.signin);
+router.get('/signup', usersController.signup);
+router.post('/create', usersController.create);
 
 module.exports = router;

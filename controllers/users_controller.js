@@ -1,7 +1,9 @@
 const User = require('../models/users');
 
 module.exports.profile = function(req, res){
-    res.end('<h1>User / Profile</h1>')
+    return res.render('user_profile', {
+        title : "User | profile"
+    });
 }
 
 module.exports.timeline = function(req, res){
@@ -9,6 +11,9 @@ module.exports.timeline = function(req, res){
 }
 
 module.exports.signin = function(req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('user_signin', {
         title:"Rajendra | Sign In", 
     });
@@ -42,7 +47,21 @@ module.exports.create = function(req, res){
 }
 
 module.exports.signup = function(req, res){
+    if(req.isAuthenticated()){
+        return res.redirect('/users/profile');
+    }
     return res.render('user_signup', {
         title:"Rajendra | Sign Up", 
     });
+}
+
+
+module.exports.createSession = function(req, res){
+    return res.redirect('/users/profile');
+}
+
+module.exports.signout = function(req, res){
+    req.logout();
+    return res.redirect('/');
+
 }

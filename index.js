@@ -13,9 +13,42 @@ app.use(cookieParser());
 //set up database
 const db = require('./config/mongoose');
 
+//used for session cookie
+const session = require('express-session');
+const passport = require('passport');
+const passportLocal = require('./config/passport-local-strategy');
+const MongoStore = require('connect-mongo')(session);
+
 //set up view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');
+
+//mongo store is used to session cookie in mongo db
+//set sessions
+app.use(session({
+    name : 'social-media',
+    //todo change key before deploying to production
+    secret : 'ogdf60b542cbfhd83584hdsiafo',
+    saveUninitialized : false,
+    resave : false,
+    cookie : {
+        maxAge : (1000*60*100),
+
+    },
+    store : new MongoStore({
+        mongooseConnection : db,
+        autoremove : 'disabled',
+    },
+    function(err){
+        console.log(err || 'connection to mongo db ok');
+    }),
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
+
 
 //add specific css in head and js files in body of html smartly 
 app.set('layout extractStyles', true); 

@@ -1,14 +1,22 @@
 <header>
-    <ul>
-        <% if(locals.user) { %>
-            <li style= "list-style : none;">
-                <a href="/users/profile" style="background-color: rgb(71, 197, 255); color: aliceblue;"><%= user.name %></a>
-                <a href="/users/signout" style="background-color: tomato; color: aliceblue;">Sign Out</a>
-            </li>
-        <% } else { %>
-            <a href="/users/signin" style="background-color: rgb(71, 145, 255); color: aliceblue;">Sign In</a>
-            <a href="/users/signup" style="background-color: rgb(1, 59, 4); color: aliceblue;">Sign Up</a>
-
-        <% }%>
-    </ul>
+    <nav>
+        <ul>
+            <% if(locals.user) { %>
+                <li>
+                    <a href="/users/profile" ><%= user.name %></a>
+                </li>
+                <li>
+                    <a href="/users/signout" >Sign Out</a>
+                </li>
+            <% } else { %>
+                <li>
+                    <a href="/users/signin" style="background-color: rgb(71, 145, 255); color: aliceblue;">Sign In</a>
+                </li>
+                <li>
+                    <a href="/users/signup" style="background-color: rgb(1, 59, 4); color: aliceblue;">Sign Up</a>
+                </li>
+    
+            <% }%>
+        </ul>
+    </nav>
 </header>

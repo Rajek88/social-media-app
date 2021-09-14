@@ -19,6 +19,19 @@ const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo')(session);
 
+//sass middleware
+
+const sassMiddleWare = require('node-sass-middleware-5');
+app.use(sassMiddleWare({
+    src : './assets/scss/',
+    dest : './assets/css/',
+    debug : true,
+    outputStyle : 'extended',
+    prefix : '/css',
+
+}));
+
+
 //set up view engine
 app.set('view engine', 'ejs');
 app.set('views', './views');

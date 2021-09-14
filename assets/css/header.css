@@ -1,0 +1,32 @@
+header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #0250a8;
+  color: aliceblue; }
+  header nav {
+    width: 90%;
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    header nav ul {
+      width: 100%;
+      list-style: none;
+      padding: 0%;
+      margin: 0%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center; }
+      header nav ul li a {
+        padding: 8px 10px;
+        text-decoration: none;
+        color: aliceblue;
+        border: none;
+        border-radius: 30px;
+        font-size: 18px;
+        margin: 3px; }

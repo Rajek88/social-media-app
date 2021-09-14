@@ -1,50 +1,44 @@
-.signin-form, .signup-form{
-    width: 90%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-wrap: wrap;
-}
+.signin-form, .signup-form {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap; }
 
-.left-bg{
-    margin: 20px;
-    flex-grow: 1;
-    width: 300px;
-    max-height: 500px;
-    border-radius: 30px;
-}
+.left-bg {
+  margin: 20px;
+  flex-grow: 1;
+  width: 300px;
+  max-height: 500px;
+  border-radius: 30px; }
 
-.right-signin-form{
-    margin: 20px;
-    flex-grow: 1;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+.right-signin-form {
+  margin: 20px;
+  flex-grow: 1;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
-.right-signin-form input{
-    padding: 10px;
-    display: inline-block;
-    border:none;
-    border-radius: 20px;
-    width: 80%;
-    margin-bottom: 20px;
-}
+.right-signin-form input {
+  padding: 10px;
+  display: inline-block;
+  border: none;
+  border-radius: 20px;
+  width: 80%;
+  margin-bottom: 20px; }
 
-.signin-icon{
-    color: rgb(2, 143, 96);
-    font-size: 30px;
-}
+.signin-icon {
+  color: #028f60;
+  font-size: 30px; }
 
-.submit-btn{
-    padding: 10px 16px;
-    background-color: rgb(0, 103, 172);
-    color: aliceblue;
-    border-radius: 30px;
-    border: none;
-    font-weight: 500;
-    font-size: 16px;
-}
+.submit-btn {
+  padding: 10px 16px;
+  background-color: #0067ac;
+  color: aliceblue;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px; }

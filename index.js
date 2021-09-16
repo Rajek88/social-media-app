@@ -23,8 +23,8 @@ const MongoStore = require('connect-mongo')(session);
 
 const sassMiddleWare = require('node-sass-middleware-5');
 app.use(sassMiddleWare({
-    src : './assets/scss/',
-    dest : './assets/css/',
+    src : './assets/scss',
+    dest : './assets/css',
     debug : true,
     outputStyle : 'extended',
     prefix : '/css',

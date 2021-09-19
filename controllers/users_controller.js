@@ -57,7 +57,7 @@ module.exports.signup = function(req, res){
 
 
 module.exports.createSession = function(req, res){
-    return res.redirect('/users/profile');
+    return res.redirect('/');
 }
 
 module.exports.signout = function(req, res){

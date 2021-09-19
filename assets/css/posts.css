@@ -1,0 +1,15 @@
+#all-posts {
+  width: 100%;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-start;
+  align-items: center; }
+  #all-posts .post-div {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 5px 5px #535353;
+    border: none;
+    border-radius: 15px; }

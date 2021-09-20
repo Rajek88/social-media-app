@@ -16,6 +16,28 @@
         <div class="post-div">
             <h4><%= post.user.name %></h4>
             <p><%= post.content %></p>
+            <div class="post-comment">
+                <% if(locals.user) { %>
+                <form action="/comments/create" method="post">
+                    <input type="text" name="content" placeholder="Add your comment here.">
+                    <input type="hidden" name="post" value="<%= post._id %>">
+                    <button type="submit">Post</button>
+                </form>
+                <% } %>
+                <div class="post-comments-list">
+                    <ul id= "post-comments-<%= post._id %>">
+                        <% for (let comment of post.comments ) { %>
+                            <p>
+                                <%= comment.user.name %>
+                                <br>
+                                <%= comment.content %>
+                            </p>
+                        <% } %>
+                        
+
+                    </ul>
+                </div>
+            </div>
         </div>
     <% } %>
 </section>

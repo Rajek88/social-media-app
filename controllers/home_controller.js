@@ -17,7 +17,16 @@ module.exports.home = function(req, res){
 
     //populate the user of each post
 
-    Post.find({}).populate('user').exec(function(err, allPosts){
+    Post.find({})
+    .populate('user')
+    //populate the coomments on each posts
+    .populate({
+        path : 'comments',
+        populate : {
+            path : 'user',
+        }
+    })
+    .exec(function(err, allPosts){
             if(err){
             console.log('Error fetching posts');
             return;

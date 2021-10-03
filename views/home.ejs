@@ -14,6 +14,9 @@
 <section id="all-posts">
     <% for(let post of posts) { %>
         <div class="post-div">
+            <% if(locals.user && locals.user.id === post.user.id ){ %>
+                <small><a href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></small>
+            <% } %>
             <h4><%= post.user.name %></h4>
             <p><%= post.content %></p>
             <div class="post-comment">

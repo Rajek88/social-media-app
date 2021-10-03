@@ -1,0 +1,12 @@
+<li>
+    <% if(locals.user && locals.user.id === comment.user.id ){ %>
+        <small><a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
+    <% } else { %>
+    <% if(locals.user && locals.user.id === post.user.id ){ %>
+        <small><a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
+    <% } } %>
+
+    <%= comment.user.name %>
+    <br>
+    <%= comment.content %>
+</li>

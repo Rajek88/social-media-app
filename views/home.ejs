@@ -13,41 +13,6 @@
 </section>
 <section id="all-posts">
     <% for(let post of posts) { %>
-        <div class="post-div">
-            <% if(locals.user && locals.user.id === post.user.id ){ %>
-                <small><a href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></small>
-            <% } %>
-            <h4><%= post.user.name %></h4>
-            <p><%= post.content %></p>
-            <div class="post-comment">
-                <% if(locals.user) { %>
-                <form action="/comments/create" method="post">
-                    <input type="text" name="content" placeholder="Add your comment here.">
-                    <input type="hidden" name="post" value="<%= post._id %>">
-                    <button type="submit">Post</button>
-                </form>
-                <% } %>
-                <div class="post-comments-list">
-                    <ul id= "post-comments-<%= post._id %>">
-                        <% for (let comment of post.comments ) { %>
-                            <p>
-                                <% if(locals.user && locals.user.id === comment.user.id ){ %>
-                                    <small><a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
-                                <% } else { %>
-                                <% if(locals.user && locals.user.id === post.user.id ){ %>
-                                    <small><a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
-                                <% } } %>
-
-                                <%= comment.user.name %>
-                                <br>
-                                <%= comment.content %>
-                            </p>
-                        <% } %>
-                        
-
-                    </ul>
-                </div>
-            </div>
-        </div>
+        <%- include('_post', { post : post })%>
     <% } %>
 </section>

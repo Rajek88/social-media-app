@@ -5,6 +5,7 @@
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 10px;
+    background-color: white;
 
     .post-head{
         padding: 10px;
@@ -50,6 +51,7 @@
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 10px;
 
             input{
                 width: 300px;

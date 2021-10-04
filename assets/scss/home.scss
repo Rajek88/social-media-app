@@ -90,5 +90,22 @@
         justify-content: flex-start;
         align-items: flex-start;
 
+        .user-card{
+            width: 90%;
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            border: 1px solid purple;
+            background-color: white;
+            margin-bottom: 10px;
+            border-radius: 20px;
+
+            i{
+                margin-right: 10px;
+            }
+        }
+
     }
 }

@@ -4,7 +4,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  background-color: white; }
   .post-div .post-head {
     padding: 10px;
     width: 100%;
@@ -37,7 +38,8 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center; }
+      align-items: center;
+      margin-bottom: 10px; }
       .post-div .post-comment form input {
         width: 300px;
         height: 30px;

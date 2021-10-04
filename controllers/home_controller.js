@@ -1,4 +1,5 @@
 const Post = require('../models/posts');
+const User = require('../models/users');
 
 module.exports.home = function(req, res){
 
@@ -27,14 +28,18 @@ module.exports.home = function(req, res){
         }
     })
     .exec(function(err, allPosts){
-            if(err){
-            console.log('Error fetching posts');
-            return;
-        }
 
-        return res.render('home', {
-            title : 'home',
-            posts : allPosts,
+        User.find({}, function(err, users){
+            if(err){
+                console.log('Error fetching posts');
+                return;
+            }
+    
+            return res.render('home', {
+                title : 'home',
+                posts : allPosts,
+                all_users : users,
+            });
         });
     })
 }

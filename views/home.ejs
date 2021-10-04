@@ -16,3 +16,12 @@
         <%- include('_post', { post : post })%>
     <% } %>
 </section>
+
+<section id="user-list">
+    <h4>Friends</h4>
+    <% for( let user of all_users){ %>
+        <p>
+            <a href="users/profile/<%= user.id %>"><%= user.name %></a>
+        </p>
+    <% } %>
+</section>

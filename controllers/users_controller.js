@@ -1,9 +1,16 @@
 const User = require('../models/users');
 
 module.exports.profile = function(req, res){
-    return res.render('user_profile', {
-        title : "User | profile"
-    });
+    User.findById(req.params.id, function(err, user){
+        if(err){
+            console.log('Error fetching users : ', err);
+            return;
+        }
+        return res.render('user_profile', {
+            title : "User | profile",
+            profile_user : user,
+        });
+    } );
 }
 
 module.exports.timeline = function(req, res){

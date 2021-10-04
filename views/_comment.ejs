@@ -1,12 +1,17 @@
 <li>
-    <% if(locals.user && locals.user.id === comment.user.id ){ %>
-        <small><a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
-    <% } else { %>
-    <% if(locals.user && locals.user.id === post.user.id ){ %>
-        <small><a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a></small>
-    <% } } %>
+    <div class="comment-head">
+        <h5 class="commenter-name"><i class="fas fa-user-circle" style="color: cadetblue;"></i> &nbsp;<%= comment.user.name %></h5>
+        <div class="del-comment">
+            <% if(locals.user && locals.user.id === comment.user.id ){ %>
+                <a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
+            <% } else { %>
+            <% if(locals.user && locals.user.id === post.user.id ){ %>
+                <a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
+            <% } } %>
+        </div>
+    </div>
 
-    <%= comment.user.name %>
-    <br>
-    <%= comment.content %>
+    <div class="comment-content">
+        <p><%= comment.content %></p>
+    </div>
 </li>

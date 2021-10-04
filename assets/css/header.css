@@ -1,10 +1,14 @@
 header {
   width: 100%;
   display: flex;
+  position: sticky;
+  top: 0%;
+  height: 80px;
+  z-index: 11111;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #0250a8;
+  background-color: #11a5fa;
   color: aliceblue; }
   header nav {
     width: 90%;
@@ -13,6 +17,9 @@ header {
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
+    header nav h3 {
+      width: 100%;
+      align-self: flex-start; }
     header nav ul {
       width: 100%;
       list-style: none;

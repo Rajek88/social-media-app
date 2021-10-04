@@ -7,6 +7,7 @@ router.get('/', function(req, res){
     res.end('<h1>Users ?</h1>')
 });
 router.get('/profile/:id', passport.checkAuthentication ,usersController.profile);
+router.post('/update-profile/:id', passport.checkAuthentication, usersController.updateProfile);
 router.get('/timeline', usersController.timeline);
 router.get('/signin', usersController.signin);
 router.get('/signup', usersController.signup);

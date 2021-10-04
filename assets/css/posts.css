@@ -1,15 +1,107 @@
-#all-posts {
+.post-div {
   width: 100%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center; }
-  #all-posts .post-div {
+  align-items: center;
+  margin-bottom: 10px; }
+  .post-div .post-head {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; }
+    .post-div .post-head .user-name {
+      margin-left: 10px; }
+    .post-div .post-head .post-del-btn {
+      width: 40px;
+      height: 40px; }
+      .post-div .post-head .post-del-btn a {
+        width: 100%;
+        height: 100%;
+        color: tomato;
+        text-decoration: none; }
+  .post-div .post-content {
     width: 90%;
+    text-align: start; }
+  .post-div .post-comment {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 5px 5px #535353;
-    border: none;
-    border-radius: 15px; }
+    padding: 0px 10px; }
+    .post-div .post-comment form {
+      width: 90%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      .post-div .post-comment form input {
+        width: 300px;
+        height: 30px;
+        flex-grow: 1; }
+      .post-div .post-comment form button {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+        border-radius: 30px;
+        border: none;
+        color: white;
+        background-color: blueviolet; }
+    .post-div .post-comment .post-comments-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; }
+      .post-div .post-comment .post-comments-list ul {
+        width: 100%;
+        padding: 0%;
+        margin: 0%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        list-style: none; }
+        .post-div .post-comment .post-comments-list ul li {
+          width: 80%;
+          margin: 5px 0px;
+          padding: 0px 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid cornflowerblue;
+          flex-wrap: wrap;
+          border-radius: 20px; }
+          .post-div .post-comment .post-comments-list ul li .comment-head {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center; }
+            .post-div .post-comment .post-comments-list ul li .comment-head .commenter-name {
+              color: #3a3a3a;
+              align-self: flex-start; }
+            .post-div .post-comment .post-comments-list ul li .comment-head .del-comment {
+              align-self: flex-end;
+              width: 20px;
+              height: 20px; }
+              .post-div .post-comment .post-comments-list ul li .comment-head .del-comment a {
+                width: 10px;
+                height: 10px;
+                color: tomato; }
+          .post-div .post-comment .post-comments-list ul li .comment-content {
+            padding: 0%;
+            color: #2b2b2b;
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+            flex-wrap: wrap; }
+            .post-div .post-comment .post-comments-list ul li .comment-content p {
+              text-align: start;
+              word-break: break-all; }

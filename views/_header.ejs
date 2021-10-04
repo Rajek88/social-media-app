@@ -1,9 +1,10 @@
 <header>
     <nav>
+        <h3>Rajendra's social Media</h3>
         <ul>
             <% if(locals.user) { %>
                 <li>
-                    <a href="/users/profile" ><%= user.name %></a>
+                    <a href="/users/profile/<%= user.id %>" ><%= user.name %></a>
                 </li>
                 <li>
                     <a href="/users/signout" style="background-color: tomato; color: aliceblue;">Sign Out</a>

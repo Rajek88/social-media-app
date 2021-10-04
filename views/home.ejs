@@ -1,27 +1,33 @@
+<link rel="stylesheet" href="/css/home.css">
 <link rel="stylesheet" href="/css/posts.css">
 
-<h1>Social Media / <%= title %></h1>
+<div class="home-container">
+    <section class="left-side">
+        <section id="feed-posts">
+            <% if(locals.user){ %>
+                
+                <h1>Hi There ! <%= user.name %></h1>
 
-<section id="feed-posts">
-    <% if(locals.user){ %>
-        <h4>Write a post</h4>
-        <form action="/posts/create" method="POST" id="new-post-form" >
-            <textarea name="content" cols="30" rows="3" placeholder="What's on your mind ?"></textarea>
-            <input type="submit" value="Post">
-        </form>
-    <% } %>
-</section>
-<section id="all-posts">
-    <% for(let post of posts) { %>
-        <%- include('_post', { post : post })%>
-    <% } %>
-</section>
+                <form action="/posts/create" method="POST" id="new-post-form" >
+                    <textarea name="content"  placeholder="What's on your mind ?"></textarea>
+                    <button type="submit" value="Post"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            <% } %>
+        </section>
+        <hr style="color: rgb(73, 73, 73); width: 90%; height: 1px; background: rgb(99, 99, 99);">
+        <section id="all-posts">
+            <% for(let post of posts) { %>
+                <%- include('_post', { post : post })%>
+            <% } %>
+        </section>
+    </section>
 
-<section id="user-list">
-    <h4>Friends</h4>
-    <% for( let user of all_users){ %>
-        <p>
-            <a href="users/profile/<%= user.id %>"><%= user.name %></a>
-        </p>
-    <% } %>
-</section>
+    <section id="user-list" class="right-side">
+        <h4>Friends</h4>
+        <% for( let user of all_users){ %>
+            <p>
+                <i class="fas fa-user-circle" style="color: rgb(197, 125, 245); font-size: 30px;"></i> &nbsp;<a style="color: rgb(68, 68, 68); text-decoration: none;" href="users/profile/<%= user.id %>"><%= user.name %></a>
+            </p>
+        <% } %>
+    </section>
+</div>

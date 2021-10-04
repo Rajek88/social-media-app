@@ -1,0 +1,71 @@
+.home-container {
+  position: relative;
+  width: 100%;
+  height: 95vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; }
+  .home-container .left-side {
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: scroll; }
+    .home-container .left-side #feed-posts {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center; }
+      .home-container .left-side #feed-posts form {
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center; }
+        .home-container .left-side #feed-posts form textarea {
+          flex-grow: 1;
+          display: inline-block;
+          text-align: start;
+          width: 300px;
+          height: 60px;
+          font-size: 16px;
+          border-radius: 5px;
+          color: darkblue; }
+        .home-container .left-side #feed-posts form button {
+          display: inline;
+          margin: 10px 10px;
+          width: 50px;
+          height: 50px;
+          font-size: 20px;
+          border: none;
+          color: white;
+          text-align: center;
+          background-color: #1a6eec;
+          border-radius: 100px; }
+    .home-container .left-side #all-posts {
+      width: 100%;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: center; }
+      .home-container .left-side #all-posts .post-div {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid gray;
+        border-radius: 15px; }
+  .home-container .right-side {
+    width: 28%;
+    padding: 0px 0px 0px 10px;
+    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; }

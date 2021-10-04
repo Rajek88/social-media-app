@@ -13,6 +13,26 @@ module.exports.profile = function(req, res){
     } );
 }
 
+module.exports.updateProfile = function(req, res){
+    if(req.user.id == req.params.id ){
+        User.findByIdAndUpdate(req.params.id, 
+            { 
+                name : req.body.name, 
+                email : req.body.email,
+            },
+            function(err, user){
+                if(err){
+                    console.log('Error updating user details : ', err);
+                    return;
+                }
+                console.log('Successfully updated user details : ', user);
+                return res.redirect('back');
+            })
+    }else{
+        return res.status();
+    }
+}
+
 module.exports.timeline = function(req, res){
     res.end('<h1>User / Timeline</h1>')
 }

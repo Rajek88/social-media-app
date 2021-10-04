@@ -1,10 +1,14 @@
 header{
     width: 100%;
     display: flex;
+    position: sticky;
+    top: 0%;
+    height: 80px;
+    z-index: 11111;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgb(2, 80, 168);
+    background-color: rgb(17, 165, 250);
     color: aliceblue;
 
     nav{
@@ -17,6 +21,10 @@ header{
         justify-content: space-between;
         align-items: center;
 
+        h3{
+            width: 100%;
+            align-self: flex-start;
+        }
         ul{
             width: 100%;
             // border: 1px solid  green;

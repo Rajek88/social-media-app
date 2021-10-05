@@ -3,6 +3,7 @@ const Post = require('../models/posts');
 const Comment = require('../models/comments');
 
 module.exports.createPost = function(req, res){
+    req.flash('success', 'Whoo ! Post Created');
     Post.create({
         content : req.body.content,
         user : req.user._id,
@@ -20,6 +21,7 @@ module.exports.createPost = function(req, res){
 
 //implementing async await
 module.exports.destroy = function(req, res){
+    req.flash('info', 'Hmmm ! Post Deleted');
 
     Post.findById(req.params.id, function(err, post){
 

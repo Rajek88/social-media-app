@@ -62,6 +62,16 @@
                 timeout : 1500,
             }).show();
         <% } %>
+        <% if(flash.info && flash.info.length > 0 ){ %>
+            new Noty({
+                theme : 'relax',
+                text : '<%= flash.info %>',
+                // I used warning her just for orange color, else its info only
+                type : 'warning',
+                layout : 'topRight',
+                timeout : 1500,
+            }).show();
+        <% } %>
     </script>
 </body>
 </html>

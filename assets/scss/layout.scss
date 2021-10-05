@@ -9,6 +9,15 @@ body{
     font-family: 'Lato', sans-serif;
     min-width: 700px;
 
+    .flash-message{
+        width: 100%;
+        padding: 5px 10px;
+        background-color: rgb(4, 173, 136);
+        color: rgb(238, 238, 238);
+        border-radius: 10px;
+        text-align: center;
+    }
+
     #layout-main {
         // border: 1px solid tomato;
         width: 100%;

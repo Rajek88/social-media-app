@@ -8,6 +8,13 @@ body {
   align-items: center;
   font-family: 'Lato', sans-serif;
   min-width: 700px; }
+  body .flash-message {
+    width: 100%;
+    padding: 5px 10px;
+    background-color: #04ad88;
+    color: #eeeeee;
+    border-radius: 10px;
+    text-align: center; }
   body #layout-main {
     width: 100%;
     min-height: 100vh;

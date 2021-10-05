@@ -17,6 +17,14 @@
 <body>
     
     <%- include('_header') %>
+
+    <% if(flash.success && flash.success.length > 0 ) { %>
+        <div class="flash-message">
+            <p>
+                <%= flash.success %>
+            </p>
+        </div>
+    <% } %>
     <main id="layout-main">
         <%- body %>
     </main>
@@ -26,5 +34,11 @@
     <!-- Add JS dynamically -->
     <%- script %>
 
+    <script>
+        let flashMsg = document.querySelector('.flash-message');
+        setTimeout(function(){
+            flashMsg.style.display = 'none';
+        }, 2000);
+    </script>
 </body>
 </html>

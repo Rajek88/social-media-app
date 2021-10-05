@@ -31,6 +31,9 @@ app.use(sassMiddleWare({
 
 }));
 
+const flash = require('connect-flash');
+const customMware = require('./config/middleware');
+
 
 //set up view engine
 app.set('view engine', 'ejs');
@@ -61,6 +64,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
+
+//use flash here
+app.use(flash());
+app.use(customMware.setFlash);
 
 
 //add specific css in head and js files in body of html smartly 

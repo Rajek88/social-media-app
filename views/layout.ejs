@@ -7,6 +7,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css" integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js" integrity="sha512-lOrm9FgT1LKOJRUXF3tp6QaMorJftUjowOWiDcG5GFZ/q7ukof19V0HKx/GWzXCdt9zYju3/KhBNdCLzK8b90Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <!-- Add css dynamically -->
@@ -18,13 +20,14 @@
     
     <%- include('_header') %>
 
-    <% if(flash.success && flash.success.length > 0 ) { %>
+    <!-- <% if(flash.success && flash.success.length > 0 ) { %>
         <div class="flash-message">
             <p>
                 <%= flash.success %>
             </p>
         </div>
-    <% } %>
+    <% } %> -->
+    
     <main id="layout-main">
         <%- body %>
     </main>
@@ -35,10 +38,21 @@
     <%- script %>
 
     <script>
-        let flashMsg = document.querySelector('.flash-message');
-        setTimeout(function(){
-            flashMsg.style.display = 'none';
-        }, 2000);
+        // let flashMsg = document.querySelector('.flash-message');
+        // setTimeout(function(){
+        //     flashMsg.style.display = 'none';
+        // }, 2000);
+
+
+        <% if(flash.success && flash.success.length > 0 ){ %>
+            new Noty({
+                theme : 'relax',
+                text : '<%= flash.success %>',
+                type : 'success',
+                layout : 'topRight',
+                timeout : 1500,
+            }).show();
+        <% } %>
     </script>
 </body>
 </html>

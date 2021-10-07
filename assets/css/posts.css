@@ -112,8 +112,7 @@
               text-decoration: none;
               color: #292929; }
               .post-div .post-comment .post-comments-list ul li .comment-head .commenter-name img {
-                margin-right: 3px;
-                box-shadow: 2px 2px 4px gray; }
+                margin-right: 3px; }
             .post-div .post-comment .post-comments-list ul li .comment-head .del-comment {
               align-self: flex-end;
               width: 20px;

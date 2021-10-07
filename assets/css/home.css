@@ -53,14 +53,6 @@
       flex-direction: column-reverse;
       justify-content: flex-start;
       align-items: center; }
-      .home-container .left-side #all-posts .post-div {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid gray;
-        border-radius: 15px; }
   .home-container .right-side {
     width: 28%;
     padding: 0px 0px 0px 5px;
@@ -79,7 +71,8 @@
       align-items: center;
       background-color: #e1f1ff;
       margin-bottom: 10px;
-      border-radius: 20px; }
+      border-radius: 20px;
+      box-shadow: 5px 5px 10px gray; }
       .home-container .right-side .user-card img {
         margin-right: 5px;
         width: 40px;

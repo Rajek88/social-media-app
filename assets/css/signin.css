@@ -4,7 +4,8 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  background-image: url("/images/signin-bg.png"); }
 
 .left-bg {
   margin: 20px;

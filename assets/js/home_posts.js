@@ -55,6 +55,8 @@
                     console.log('Serialized : ',data);
                     let newPost = newPostDom(data.data.post);
                     $('#all-posts').prepend(newPost);
+                    //append this .post-del-btn class everytime we create new post, remember to add space before .
+                    deletePost($(' .post-del-btn', newPost))
                 }, 
                 error : function(err){
                     console.log('Error', err.responseText);
@@ -91,7 +93,24 @@
             </div>
         </div>
         
-        `)
+        `);
+    }
+
+    let deletePost = function(deleteLink){
+        $(deleteLink).click(function(e){
+            e.preventDefault();
+
+            $.ajax({
+                type : 'get',
+                url : $(deleteLink).prop('href'),
+                success : function(data){
+                    $(`#post-${data.post_id}`).remove();
+                },
+                error : function(error){
+                    console.log('error : ', error.responseText);
+                }
+            });
+        });
     }
 }
 

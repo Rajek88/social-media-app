@@ -28,28 +28,32 @@ module.exports.createPost = async function(req, res){
     }
 }
 
+
+
 //implementing async await
-module.exports.destroy = function(req, res){
-    req.flash('info', 'Hmmm ! Post Deleted');
+module.exports.destroy = async function(req, res){
 
-    Post.findById(req.params.id, function(err, post){
+    let post = await Post.findById(req.params.id);
+    if(post.user == req.user.id){
+        post.remove();
+        await Comment.deleteMany({ post : req.params.id });
 
-        // .id means it is converting the _id into string 
-        if(post.user == req.user.id){
-            post.remove();
-            Comment.deleteMany({ post : req.params.id }, function(err){
-                if(err){
-                    console.log('Error deleting post : ', err );
-                    return;
-                }
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    post_id : req.params.id,
+                },
+                message : 'Post deleted !',
             });
-            console.log('Post deleted successfully : ', post);
-            return res.redirect('back'); 
         }
-        else{
-            return res.redirect('back'); 
-        }
-    })
+
+        req.flash('info', 'Hmmm ! Post Deleted');
+        console.log('Post deleted successfully : ', post);
+        return res.redirect('back'); 
+    }
+    else{
+        return res.redirect('back'); 
+    }
 }
 
 // module.exports.destroy = function(req, res){

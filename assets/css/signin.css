@@ -4,14 +4,13 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
-  background-image: url("/images/signin-bg.png"); }
+  flex-wrap: wrap; }
 
 .left-bg {
   margin: 20px;
   flex-grow: 1;
   width: 300px;
-  max-height: 500px;
+  max-height: 800px;
   border-radius: 30px; }
 
 .right-signin-form {

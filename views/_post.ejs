@@ -1,7 +1,7 @@
 <div class="post-div" id="post-<%= post._id %>">
     <div class="post-head">
         <a class="user-name" href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: rgb(41, 41, 41);">
-            <img src="<%= post.user.avatar %>" alt="<%= user.name %>"> &nbsp;
+            <img src="<%= post.user.avatar %>" alt="<%= post.user.name %>"> &nbsp;
             <h5><%= post.user.name %></h5>
         </a>
         <% if(locals.user && locals.user.id == post.user.id ){ %>

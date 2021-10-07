@@ -8,8 +8,9 @@
     padding-bottom: 30px;
     background-color: white;
     border:none;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px gray;
+    // border-radius: 15px;
+    border-bottom: 2px solid #1a6eec;
+    // box-shadow: 5px 5px 10px gray;
 
     .post-head{
         padding: 10px;
@@ -33,7 +34,7 @@
                 border-radius: 30px; 
                 border: 1.5px solid #1a6eec; 
                 margin-right: 3px;
-                box-shadow: 2px 2px 4px gray;
+                // box-shadow: 2px 2px 4px gray;
 
             }
         }
@@ -79,8 +80,8 @@
                 flex-grow: 1;
                 border-radius: 60px;
                 border: 1px solid rgba(201, 201, 201, 0) ;
-                background-color: rgb(255, 255, 255);
-                box-shadow:inset 3px 3px 6px gray;
+                background-color: rgb(236, 236, 236);
+                // box-shadow:inset 3px 3px 6px gray;
 
 
                 // border : 1px solid purple;

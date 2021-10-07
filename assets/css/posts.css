@@ -14,7 +14,18 @@
     justify-content: space-between;
     align-items: center; }
     .post-div .post-head .user-name {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
       margin-left: 10px; }
+      .post-div .post-head .user-name img {
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        border: 1.5px solid #1a6eec;
+        margin-right: 3px; }
     .post-div .post-head .post-del-btn {
       width: 40px;
       height: 40px; }
@@ -85,8 +96,15 @@
             justify-content: space-between;
             align-items: center; }
             .post-div .post-comment .post-comments-list ul li .comment-head .commenter-name {
-              color: #3a3a3a;
-              align-self: flex-start; }
+              width: 90%;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: center;
+              text-decoration: none;
+              color: #292929; }
+              .post-div .post-comment .post-comments-list ul li .comment-head .commenter-name img {
+                margin-right: 3px; }
             .post-div .post-comment .post-comments-list ul li .comment-head .del-comment {
               align-self: flex-end;
               width: 20px;

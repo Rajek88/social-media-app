@@ -1,4 +1,6 @@
 const User = require('../models/users');
+const fs = require('fs');
+const path = require('path');
 
 module.exports.profile = function(req, res){
     User.findById(req.params.id, function(err, user){
@@ -13,24 +15,65 @@ module.exports.profile = function(req, res){
     } );
 }
 
-module.exports.updateProfile = function(req, res){
+module.exports.updateProfile = async function(req, res){
+    
     if(req.user.id == req.params.id ){
-        User.findByIdAndUpdate(req.params.id, 
-            { 
-                name : req.body.name, 
-                email : req.body.email,
-            },
-            function(err, user){
+        try {
+            let user = await User.findById(req.params.id);
+            User.uploadedAvatar(req, res, function(err){
                 if(err){
-                    console.log('Error updating user details : ', err);
+                    console.log('*** Multer Error : ', err);
                     return;
                 }
-                console.log('Successfully updated user details : ', user);
-                return res.redirect('back');
+                user.name = req.body.name;
+                user.email = req.body.email;
+                if(req.file){
+
+                    if(user.avatar){
+                        try {
+                            fs.unlinkSync(path.join(__dirname,'..', user.avatar));
+                        } catch (error) {
+                            console.log('Error in unlinksyncing image : ', error);
+                        }
+                    }
+                    //saving path of uploaded file in avatar field of user database
+                    user.avatar = User.avatarPath + '/' + req.file.filename;
+
+                }
+                user.save();
+
+                console.log(req.file);
             })
+            console.log('Successfully updated user details : ', user);
+            return res.redirect('back');
+
+        } catch (error) {
+            console.log('Error : ', error);
+            return res.status(401).send('Unauthorized access !');
+        }
     }else{
         return res.status();
     }
+
+
+
+    // if(req.user.id == req.params.id ){
+    //     User.findByIdAndUpdate(req.params.id, 
+    //         { 
+    //             name : req.body.name, 
+    //             email : req.body.email,
+    //         },
+    //         function(err, user){
+    //             if(err){
+    //                 console.log('Error updating user details : ', err);
+    //                 return;
+    //             }
+    //             console.log('Successfully updated user details : ', user);
+    //             return res.redirect('back');
+    //         })
+    // }else{
+    //     return res.status();
+    // }
 }
 
 module.exports.timeline = function(req, res){

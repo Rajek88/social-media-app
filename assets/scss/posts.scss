@@ -16,7 +16,20 @@
         align-items: center;
 
         .user-name{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
             margin-left: 10px;
+
+            img{
+                width: 40px; 
+                height: 40px; 
+                border-radius: 30px; 
+                border: 1.5px solid #1a6eec; 
+                margin-right: 3px;
+            }
         }
 
         .post-del-btn{
@@ -108,8 +121,18 @@
                         align-items: center;
 
                         .commenter-name{
-                            color: rgb(58, 58, 58);
-                            align-self: flex-start;
+                            width: 90%;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: flex-start;
+                            align-items: center;
+                            text-decoration: none; 
+                            color: rgb(41, 41, 41);
+
+                            img{
+                                margin-right: 3px;
+                            }
+                            
                         }
 
                         .del-comment{

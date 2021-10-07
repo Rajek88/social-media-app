@@ -1,7 +1,13 @@
+<link rel="stylesheet" href="/css/profile.css">
+
 <!-- If user profile is same as th eprofile of user who is logged in -->
 <% if(user.id == profile_user.id){ %>
+    <div class="profile-image-container">
+        <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" class="user-profile-img">
+    </div>
     <!-- then allow it to update the details -->
-    <form action="/users/update-profile/<%= profile_user.id %>" method="post">
+    <form action="/users/update-profile/<%= profile_user.id %>" enctype="multipart/form-data" method="post" id="update-profile-form">
+        <input type="file" name="avatar" placeholder="Profile picture" class="profiile-picture-uploader">
         <p>Update your Name : </p>
         <input type="text" name="name" placeholder="<%= profile_user.name %>" value="<%= profile_user.name %>" required>
         <p>Update your Email : </p>
@@ -12,6 +18,9 @@
 <% } else { %>
     <!-- Else just show the details -->
     <div>
+        <div class="profile-image-container">
+            <img src="<%= profile_user.avatar %>" alt="<%= profile_user.name %>" class="user-profile-img">
+        </div>
         <h1><%= profile_user.name %> / profile : </h1>
         <p>Email : <%= profile_user.email %></p>
     </div>

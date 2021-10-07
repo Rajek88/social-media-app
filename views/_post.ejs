@@ -1,6 +1,9 @@
 <div class="post-div" id="post-<%= post._id %>">
     <div class="post-head">
-        <h5 class="user-name"><a href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: rgb(41, 41, 41);"><i class="fas fa-user-circle" style="color: cadetblue;"></i> &nbsp;<%= post.user.name %></a></h5>
+        <a class="user-name" href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: rgb(41, 41, 41);">
+            <img src="<%= post.user.avatar %>" alt="<%= user.name %>"> &nbsp;
+            <h5><%= post.user.name %></h5>
+        </a>
         <% if(locals.user && locals.user.id == post.user.id ){ %>
             <small class="post-del-btn"><a href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></small>
         <% } %>

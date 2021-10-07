@@ -8,6 +8,8 @@ app.use(expressLayouts);
 app.use(express.static('./assets'));
 app.use(express.urlencoded());
 app.use(cookieParser());
+//make the uploads path available to downloads
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 
 //set up database

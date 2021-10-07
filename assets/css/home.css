@@ -80,5 +80,9 @@
       background-color: #e1f1ff;
       margin-bottom: 10px;
       border-radius: 20px; }
-      .home-container .right-side .user-card i {
-        margin-right: 10px; }
+      .home-container .right-side .user-card img {
+        margin-right: 5px;
+        width: 40px;
+        height: 40px;
+        border-radius: 30px;
+        border: 2px solid #1a6eec; }

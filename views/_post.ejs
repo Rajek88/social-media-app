@@ -1,4 +1,4 @@
-<div class="post-div">
+<div class="post-div" id="post-<%= post._id %>">
     <div class="post-head">
         <h5 class="user-name"><a href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: rgb(41, 41, 41);"><i class="fas fa-user-circle" style="color: cadetblue;"></i> &nbsp;<%= post.user.name %></a></h5>
         <% if(locals.user && locals.user.id == post.user.id ){ %>

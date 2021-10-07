@@ -1,22 +1,31 @@
-const { request } = require('express');
 const Post = require('../models/posts');
 const Comment = require('../models/comments');
 
-module.exports.createPost = function(req, res){
-    req.flash('success', 'Whoo ! Post Created');
-    Post.create({
-        content : req.body.content,
-        user : req.user._id,
-    }, function(err, newPost){
-        if(err){
-            console.log('Error creating post : ', err);
-            return;
+module.exports.createPost = async function(req, res){
+    // console.log(req.body);
+    try {
+        req.flash('success', 'Whoo ! Post Created');
+        let newPost = await Post.create({
+            content : req.body.content,
+            user : req.user._id,
+        });
+
+        if(req.xhr){
+            return res.status(200).json({
+                data : {
+                    post : newPost,
+                },
+                message : 'Post created !',
+            });
         }
 
         console.log("Post created successfully : ", newPost);
         // return;
         return res.redirect('back');
-    })
+    } catch (error) {
+        console.log('Error creating Post : ', error);
+        return;
+    }
 }
 
 //implementing async await

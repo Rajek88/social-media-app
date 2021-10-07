@@ -7,16 +7,25 @@ module.exports.create = async function(req, res){
         let post = await Post.findById(req.body.post);
 
         if(post){
-            let comment = await Comment.create({
+            let newComment = await Comment.create({
                 content : req.body.content,
                 post : req.body.post,
                 user : req.user._id,
             });
 
-            post.comments.push(comment);
+            if(req.xhr){
+                return res.status(200).json({
+                    data : {
+                        comment : newComment,
+                    },
+                    message : 'Comment created !',
+                });
+            }
+
+            post.comments.push(newComment);
             req.flash('success', 'Aha ! You just commented..');
             post.save();
-            return res.redirect('/');
+            return res.redirect('back');
         }
 
     } catch (error) {
@@ -45,6 +54,15 @@ module.exports.destroy = async function(req, res){
             Post.findByIdAndUpdate(postId,{ $pull : {comments : req.params.id}}, function(err, post){
                 return res.redirect('back');
             })
+
+            if(req.xhr){
+                return res.status(200).json({
+                    data : {
+                        comment_id : req.params.id,
+                    },
+                    message : 'Comment deleted !',
+                });
+            }
         }
         else{
             req.flash('error', 'Oops ! Try deleting your comment again.');
@@ -75,7 +93,15 @@ module.exports.postownerDestroy = async function(req, res){
             //$pull is built in function to pull out things from db
             Post.findByIdAndUpdate(postId,{ $pull : {comments : req.params.id}}, function(err, post){
                 return res.redirect('back');
-            })
+            });
+            if(req.xhr){
+                return res.status(200).json({
+                    data : {
+                        comment_id : req.params.id,
+                    },
+                    message : 'Comment deleted !',
+                });
+            }
         }
         else{
             console.log('Failed :: Removing the comment by owner..')

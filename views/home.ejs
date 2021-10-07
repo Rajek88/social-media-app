@@ -9,7 +9,7 @@
                 <h1>Hi There ! <%= user.name %></h1>
 
                 <form action="/posts/create" method="POST" id="new-post-form" >
-                    <textarea name="content"  placeholder="What's on your mind ?"></textarea>
+                    <textarea name="content"  placeholder="What's on your mind ?" required></textarea>
                     <button type="submit" value="Post"><i class="fas fa-paper-plane"></i></button>
                 </form>
             <% } %>

@@ -9,7 +9,7 @@
     <div class="post-comment">
         <% if(locals.user) { %>
         <form action="/comments/create" method="post">
-            <input type="text" name="content" placeholder="Add your comment here.">
+            <input type="text" name="content" placeholder="Add your comment here." required>
             <input type="hidden" name="post" value="<%= post._id %>">
             <button type="submit"><i class="far fa-comment-alt"></i></button>
         </form>

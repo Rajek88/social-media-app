@@ -8,8 +8,9 @@ header {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  background-color: #11a5fa;
-  color: aliceblue; }
+  background-color: white;
+  border-bottom: 3px solid #1778F2;
+  color: #1778F2; }
   header nav {
     width: 90%;
     padding: 20px 0px;
@@ -20,6 +21,15 @@ header {
     header nav h3 {
       width: 100%;
       align-self: flex-start; }
+      header nav h3 a {
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: #1778F2; }
+        header nav h3 a #logo {
+          width: 50px;
+          height: 50px; }
     header nav ul {
       width: 100%;
       list-style: none;
@@ -30,10 +40,11 @@ header {
       justify-content: flex-end;
       align-items: center; }
       header nav ul li a {
-        padding: 8px 10px;
+        padding: 5px 10px;
         text-decoration: none;
         color: aliceblue;
         border: none;
         border-radius: 30px;
-        font-size: 18px;
+        border: 1.5px solid #1778F2;
+        font-size: 14px;
         margin: 3px; }

@@ -8,8 +8,9 @@ header{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: rgb(17, 165, 250);
-    color: aliceblue;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 3px solid #1778F2;
+    color: #1778F2;
 
     nav{
         width: 90%;
@@ -24,6 +25,19 @@ header{
         h3{
             width: 100%;
             align-self: flex-start;
+
+            a{
+                text-decoration: none;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                color: #1778F2;    
+                
+                #logo{
+                    width: 50px;
+                    height: 50px;
+                }
+            }
         }
         ul{
             width: 100%;
@@ -41,12 +55,13 @@ header{
             // border: 1px solid orange;
 
                 a{
-                    padding: 8px 10px;
+                    padding: 5px 10px;
                     text-decoration: none;
                     color: aliceblue;
                     border: none;
                     border-radius: 30px;
-                    font-size: 18px;
+                    border : 1.5px solid #1778F2;
+                    font-size: 14px;
                     margin: 3px;
                 }
             }

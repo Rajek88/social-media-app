@@ -1,6 +1,6 @@
 <header>
     <nav>
-        <h3><a href="/" style="text-decoration: none; color: white;">Rajendra's social Media</a></h3>
+        <h3><a href="/"><img src="/images/fblogo.png" id="logo" alt="">&nbsp;Facebook</a></h3>
         <ul>
             <% if(locals.user) { %>
                 <li>
@@ -10,11 +10,10 @@
                     <a href="/users/signout" style="background-color: tomato; color: aliceblue;">Sign Out</a>
                 </li>
             <% } else { %>
-                <li>
-                    <a href="/users/signin" style="background-color: rgb(71, 145, 255); color: aliceblue;">Sign In</a>
+                <li><a href="/users/signin" style="color: #1778F2;">Sign In</a>
                 </li>
                 <li>
-                    <a href="/users/signup" style="background-color: rgb(151, 4, 170); color: aliceblue;">Sign Up</a>
+                    <a href="/users/signup" style="color: #1778F2;">Sign Up</a>
                 </li>
     
             <% }%>

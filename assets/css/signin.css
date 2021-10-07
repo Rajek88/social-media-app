@@ -10,7 +10,7 @@
   margin: 20px;
   flex-grow: 1;
   width: 300px;
-  max-height: 800px;
+  max-height: 90%;
   border-radius: 30px; }
 
 .right-signin-form {
@@ -31,12 +31,12 @@
   margin-bottom: 20px; }
 
 .signin-icon {
-  color: #028f60;
+  color: #1778F2;
   font-size: 30px; }
 
 .submit-btn {
   padding: 10px 16px;
-  background-color: #0067ac;
+  background-color: #1778F2;
   color: aliceblue;
   border-radius: 30px;
   border: none;

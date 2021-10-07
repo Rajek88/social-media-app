@@ -6,8 +6,9 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
     min-width: 700px;
+    background-color: white;
 
     .flash-message{
         width: 100%;
@@ -21,8 +22,8 @@ body{
     #layout-main {
         // border: 1px solid tomato;
         width: 100%;
-        min-height: 100vh;
-        background-color: #f5f5f5;
+        min-height: 80vh;
+        background-color: #ffffff;
         color: rgb(17, 17, 17);
         text-align: center;
         display: flex;

@@ -42,3 +42,16 @@
   border: none;
   font-weight: 500;
   font-size: 16px; }
+
+.google-signin {
+  padding: 10px 16px;
+  text-decoration: none;
+  margin: 10px 0px;
+  background-color: #1778F2;
+  color: aliceblue;
+  border-radius: 30px;
+  border: none;
+  font-weight: 500;
+  font-size: 16px; }
+  .google-signin i {
+    margin-right: 10px; }

@@ -1,5 +1,6 @@
 const Comment = require('../models/comments');
 const Post = require('../models/posts');
+const commentsMailer = require('../mailers/comments_mailer');
 
 module.exports.create = async function(req, res){
 
@@ -7,24 +8,30 @@ module.exports.create = async function(req, res){
         let post = await Post.findById(req.body.post);
 
         if(post){
-            let newComment = await Comment.create({
+            let comment = await Comment.create({
                 content : req.body.content,
                 post : req.body.post,
                 user : req.user._id,
             });
 
+            post.comments.push(comment);
+            req.flash('success', 'Aha ! You just commented..');
+            post.save();
+            comment1 = await comment.populate('user', 'name email');
+            console.log('This comment is sent to nodemailer :: ', comment1);
+            commentsMailer.newComment(comment1, post);
+            
+
+
             if(req.xhr){
-                return res.status(200).json({
+                return res.status(200).json({ 
                     data : {
-                        comment : newComment,
+                        comment : comment,
                     },
                     message : 'Comment created !',
                 });
             }
 
-            post.comments.push(newComment);
-            req.flash('success', 'Aha ! You just commented..');
-            post.save();
             return res.redirect('back');
         }
 

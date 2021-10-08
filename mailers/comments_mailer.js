@@ -22,7 +22,7 @@ exports.newComment = async (comment, post) =>{
                 return;
             }
 
-            console.log('mail delivered : ', info);
+            // console.log('mail delivered : ', info);
             return;
         });
     } catch (error) {

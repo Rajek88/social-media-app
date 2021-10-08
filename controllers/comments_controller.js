@@ -1,6 +1,8 @@
 const Comment = require('../models/comments');
 const Post = require('../models/posts');
 const commentsMailer = require('../mailers/comments_mailer');
+const commentsEmailWorker = require('../workers/comment_email_worker');
+const queue = require('../config/kue');
 
 module.exports.create = async function(req, res){
 
@@ -19,7 +21,17 @@ module.exports.create = async function(req, res){
             post.save();
             comment1 = await comment.populate('user', 'name email');
             console.log('This comment is sent to nodemailer :: ', comment1);
-            commentsMailer.newComment(comment1, post);
+            // commentsMailer.newComment(comment1, post);
+
+            //add the mail sending job to queue
+            let job = queue.create('emails', comment1).save(function(err){
+                if(err){
+                    console.log('Error in adding job to queue : ', err);
+                    return;
+                }
+
+                console.log('Job created :: ',job);
+            });
             
 
 

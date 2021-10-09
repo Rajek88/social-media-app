@@ -1,5 +1,6 @@
 const Comment = require('../models/comments');
 const Post = require('../models/posts');
+const Like = require('../models/likes');
 const commentsMailer = require('../mailers/comments_mailer');
 const commentsEmailWorker = require('../workers/comment_email_worker');
 const queue = require('../config/kue');
@@ -70,9 +71,14 @@ module.exports.destroy = async function(req, res){
             comment.remove();
             console.log('Removing the comment by commenter..')
             //$pull is built in function to pull out things from db
-            Post.findByIdAndUpdate(postId,{ $pull : {comments : req.params.id}}, function(err, post){
-                return res.redirect('back');
-            })
+            let post1 = await Post.findByIdAndUpdate(postId,{ $pull : {comments : req.params.id}});
+
+            console.log('Now deleting likes :: commentsController of post : ', post1.content);
+            console.log('Now deleting likes :: ', comment);
+
+            let deletedCommentLikes = await Like.deleteMany({ likeable : comment , onModel : 'Comment'});
+            console.log('deletedCommentLikes  :: ', deletedCommentLikes);
+
 
             if(req.xhr){
                 return res.status(200).json({
@@ -82,6 +88,7 @@ module.exports.destroy = async function(req, res){
                     message : 'Comment deleted !',
                 });
             }
+            return res.redirect('back');
         }
         else{
             req.flash('error', 'Oops ! Try deleting your comment again.');

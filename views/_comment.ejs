@@ -1,17 +1,16 @@
 <li>
     <div class="comment-head">
-            <a href="/users/profile/<%= comment.user.id %>" class="commenter-name">
-                <img src="<%= comment.user.avatar %>" alt="<%= comment.user.name %>" style="width: 40px; height: 40px; border-radius: 30px; border: none;"> &nbsp;
-                <h5><%= comment.user.name %></h5>
-            </a>
-        
+        <a href="/users/profile/<%= comment.user.id %>" class="commenter-name">
+            <img src="<%= comment.user.avatar %>" alt="<%= comment.user.name %>" style="width: 40px; height: 40px; border-radius: 30px; border: none;"> &nbsp;
+            <h5><%= comment.user.name %></h5>
+        </a>
         <div class="del-comment">
+            <a style="color: gray; text-decoration: none;" href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i>&nbsp;<%= comment.likes.length %></a>
+
             <% if(locals.user && locals.user.id === comment.user.id ){ %>
-                <a href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i></a>
                 <a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
             <% } else { %>
             <% if(locals.user && locals.user.id === post.user.id ){ %>
-                <a href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i></a>
                 <a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
             <% } } %>
         </div>

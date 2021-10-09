@@ -8,23 +8,24 @@ module.exports.toggleLike = async function(req, res){
 
     //likes/toogle/?id=hvhvh&type=Post
     try {
-        let liked = false;
         let likeable;
         let deleted = false;
 
         if(req.query.type == 'Post'){
-            likeable = await Post.findById(req.query.id).populate('likes');
+            likeable = await Post.findById(req.query.id);
         }
         else if(req.query.type == 'Comment'){
-            likeable = await Comment.findById(req.query.id).populate('likes');
+            likeable = await Comment.findById(req.query.id);
         }
 
+        console.log('Likeables v2 :: ', likeable);
+
         //check if like already exists
-        //mongoose findOne by default pluralizes the keys, i.e. if you have user in model, then you should put users in find one
         let existingLike = await Like.findOne({
-            users : req.user.id,
-            likeables : req.query.id,
-            onModels : req.query.type,
+            likeable : req.query.id,
+            onModel : req.query.type,
+            user : req.user._id,
+
         });
 
         console.log('Existing like :: ', existingLike);
@@ -35,26 +36,26 @@ module.exports.toggleLike = async function(req, res){
             likeable.save();
             existingLike.remove();
             deleted = true;
-            liked = false;
-            console.log('Liked Existing like :: ', liked);
+            console.log('Liked Existing like ');
 
         }else{
             let newLike = await Like.create({
                 user : req.user._id,
-                likeable : req.user.id,
+                likeable : req.query.id,
                 onModel : req.query.type,
             });
+
             likeable.likes.push(newLike._id);
             likeable.save();
-            liked = true;
-            console.log('Liked New like :: ', liked);
+            console.log('Liked New like ');
         }
 
 
-        return res.status(200).json({
-            message : 'Request successfull',
-            liked : liked,
-        });
+        // return res.status(200).json({
+        //     message : 'Request successfull',
+        //     liked : liked,
+        // });
+        return res.redirect('/');
         
     } catch (error) {
         console.log('ToggleLike error :: ', error);
@@ -66,3 +67,5 @@ module.exports.toggleLike = async function(req, res){
         });
     }
 }
+
+

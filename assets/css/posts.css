@@ -54,25 +54,29 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 10px; }
-      .post-div .post-comment .post-comment-bar .like-btn {
+      .post-div .post-comment .post-comment-bar .like-btn-div {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
-        width: 30px;
-        height: 30px;
-        background-color: white;
-        border: 1px solid #1a6eec;
-        border-radius: 30px;
+        width: 32px;
+        height: 32px;
         margin-right: 10px; }
-        .post-div .post-comment .post-comment-bar .like-btn a {
+        .post-div .post-comment .post-comment-bar .like-btn-div .like-btn {
           width: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           width: 30px;
           height: 30px;
+          background-color: white;
+          border: 1px solid #1a6eec;
           text-decoration: none;
+          border-radius: 30px;
           color: grey; }
+        .post-div .post-comment .post-comment-bar .like-btn-div p {
+          margin: 0px;
+          padding: 0px; }
       .post-div .post-comment .post-comment-bar form {
         width: 90%;
         display: flex;

@@ -74,26 +74,31 @@
             margin-bottom: 10px;
 
 
-            .like-btn{
+            .like-btn-div{
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
-                width: 30px;
-                height: 30px;
-                background-color: white;
-                border: 1px solid #1a6eec;
-                border-radius: 30px;
+                width: 32px;
+                height: 32px;
                 margin-right: 10px;
 
-                a{
+                .like-btn{
                     width: 100%;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     width: 30px;
                     height: 30px;
+                    background-color: white;
+                    border: 1px solid #1a6eec;
                     text-decoration: none;
+                    border-radius: 30px;
                     color: grey;
+                }
+                p{
+                    margin: 0px;
+                    padding: 0px;
                 }
             }
 

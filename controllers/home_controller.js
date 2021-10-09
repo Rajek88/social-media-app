@@ -15,15 +15,15 @@ module.exports.home = async function(req, res){
             path : 'comments',
             populate : {
                 path : 'user',
-            }
-        })
+            },
+        });
 
         //await 2
         let users = await User.find({});
 
         //finally return this
         return res.render('home', {
-            title : 'home',
+            title : 'Home',
             posts : allPosts,
             all_users : users,
         });

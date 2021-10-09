@@ -11,11 +11,14 @@
     <p class="post-content"><%= post.content %></p>
     <div class="post-comment">
         <% if(locals.user) { %>
-        <form action="/comments/create" method="post" id="new-comment-form">
-            <input type="text" name="content" placeholder="Add your comment here." required>
-            <input type="hidden" name="post" value="<%= post._id %>">
-            <button type="submit"><i class="far fa-comment-alt"></i></button>
-        </form>
+        <div class="post-comment-bar">
+            <div class="like-btn"><a href="/likes/toggle/?id=<%= post._id %>&type=Post"><i class="fa fa-thumbs-up"></i></a></div>
+            <form action="/comments/create" method="post" id="new-comment-form">
+                <input type="text" name="content" placeholder="Add your comment here." required>
+                <input type="hidden" name="post" value="<%= post._id %>">
+                <button type="submit"><i class="far fa-comment-alt"></i></button>
+            </form>
+        </div>
         <% } %>
         <div class="post-comments-list">
             <ul id= "post-comments-<%= post._id %>" class="all-comments">

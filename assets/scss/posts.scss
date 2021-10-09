@@ -65,7 +65,7 @@
         align-items: center;
         padding: 0px 10px;
 
-        form{
+        .post-comment-bar{
             width: 90%;
             display: flex;
             flex-direction: row;
@@ -73,29 +73,63 @@
             align-items: center;
             margin-bottom: 10px;
 
-            input{
-                width: 300px;
-                height: 30px;
-                padding: 2px 10px;
-                flex-grow: 1;
-                border-radius: 60px;
-                border: 1px solid rgba(201, 201, 201, 0) ;
-                background-color: rgb(236, 236, 236);
-                // box-shadow:inset 3px 3px 6px gray;
 
-
-                // border : 1px solid purple;
-            }
-            button{
+            .like-btn{
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 width: 30px;
                 height: 30px;
-                margin-left: 10px;
+                background-color: white;
+                border: 1px solid #1a6eec;
                 border-radius: 30px;
-                border:none;
-                color: white;
-                background-color: blueviolet;
+                margin-right: 10px;
+
+                a{
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 30px;
+                    height: 30px;
+                    text-decoration: none;
+                    color: grey;
+                }
+            }
+
+            form{
+                width: 90%;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+    
+                input{
+                    width: 300px;
+                    height: 30px;
+                    padding: 2px 10px;
+                    flex-grow: 1;
+                    border-radius: 60px;
+                    border: 1px solid rgba(201, 201, 201, 0) ;
+                    background-color: rgb(236, 236, 236);
+                    // box-shadow:inset 3px 3px 6px gray;
+    
+    
+                    // border : 1px solid purple;
+                }
+                button{
+                    width: 30px;
+                    height: 30px;
+                    margin-left: 10px;
+                    border-radius: 30px;
+                    border:none;
+                    color: white;
+                    background-color: blueviolet;
+                }
             }
         }
+
+        
 
         .post-comments-list{
             width: 100%;
@@ -156,7 +190,7 @@
 
                         .del-comment{
                             align-self: flex-end;
-                            width: 20px;
+                            width: 50px;
                             height: 20px;
 
                             a{

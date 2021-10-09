@@ -7,9 +7,11 @@
         
         <div class="del-comment">
             <% if(locals.user && locals.user.id === comment.user.id ){ %>
+                <a href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i></a>
                 <a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
             <% } else { %>
             <% if(locals.user && locals.user.id === post.user.id ){ %>
+                <a href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i></a>
                 <a href="/comments/postownerDestroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
             <% } } %>
         </div>

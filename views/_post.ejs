@@ -1,3 +1,4 @@
+
 <div class="post-div" id="post-<%= post._id %>">
     <div class="post-head">
         <a class="user-name" href="/users/profile/<%= post.user.id %>" style="text-decoration: none; color: rgb(41, 41, 41);">
@@ -8,11 +9,14 @@
             <small class="post-del-btn"><a href="/posts/destroy/<%= post.id %>"><i class="fas fa-trash-alt"></i></a></small>
         <% } %>
     </div>
+    <% if (post.postPhoto) { %>
+        <img class="post-photo" src="/uploads/posts/post_photos/<%= post.postPhoto %>" alt="Post Photo">
+    <% } %>
     <p class="post-content"><%= post.content %></p>
     <div class="post-comment">
         <% if(locals.user) { %>
         <div class="post-comment-bar">
-            <div class="like-btn-div"><a class="like-btn" href="/likes/toggle/?id=<%= post.id %>&type=Post">
+            <div class="like-btn-div"><a class="like-btn" id="like-thumb-post"  href="/likes/toggle/?id=<%= post.id %>&type=Post" >
                 <i class="fa fa-thumbs-up"></i></a>
                 <p><%= post.likes.length %></p>
             </div>
@@ -33,4 +37,22 @@
     </div>
 </div>
 
-<script src="/js/post_comments.js"></script>
+<!-- <p>post.likes.user</p><%=  post.likes %><br>
+<p>post.user</p><%=  post.user %>
+
+<% if(locals.user && post.user == post.likes.user) { %>
+    
+    <style>
+        #like-thumb-post{
+            color: rgb(0, 140, 255);
+        }
+    </style>
+<% } else { %>
+    <style>
+        #like-thumb-post{
+            color: gray;
+            /* color: rgb(0, 140, 255); */
+
+        }
+    </style>
+<% } %> -->

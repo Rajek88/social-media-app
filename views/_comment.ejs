@@ -5,7 +5,7 @@
             <h5><%= comment.user.name %></h5>
         </a>
         <div class="del-comment">
-            <a style="color: gray; text-decoration: none;" href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i>&nbsp;<%= comment.likes.length %></a>
+            <a id="like-thumb" style="color: gray; text-decoration: none;" href="/likes/toggle/?id=<%= comment.id %>&type=Comment"><i class="fa fa-thumbs-up"></i>&nbsp;<%= comment.likes.length %></a>
 
             <% if(locals.user && locals.user.id === comment.user.id ){ %>
                 <a href="/comments/destroy/<%= comment.id %>"><i class="fas fa-trash-alt"></i></a>
@@ -19,4 +19,6 @@
     <div class="comment-content">
         <p><%= comment.content %></p>
     </div>
+
 </li>
+

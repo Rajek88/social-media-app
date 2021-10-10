@@ -37,6 +37,9 @@
         height: 100%;
         color: tomato;
         text-decoration: none; }
+  .post-div .post-photo {
+    max-width: 90%;
+    margin-bottom: 10px; }
   .post-div .post-content {
     width: 90%;
     text-align: start; }
@@ -72,8 +75,7 @@
           background-color: white;
           border: 1px solid #1a6eec;
           text-decoration: none;
-          border-radius: 30px;
-          color: grey; }
+          border-radius: 30px; }
         .post-div .post-comment .post-comment-bar .like-btn-div p {
           margin: 0px;
           padding: 0px; }

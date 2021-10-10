@@ -52,6 +52,10 @@
         }
     }
 
+    .post-photo{
+        max-width: 90%;
+        margin-bottom: 10px;
+    }
     .post-content{
         width: 90%;
         text-align: start;
@@ -94,7 +98,6 @@
                     border: 1px solid #1a6eec;
                     text-decoration: none;
                     border-radius: 30px;
-                    color: grey;
                 }
                 p{
                     margin: 0px;

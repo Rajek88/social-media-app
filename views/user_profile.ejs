@@ -7,7 +7,7 @@
     </div>
     <!-- then allow it to update the details -->
     <form action="/users/update-profile/<%= profile_user.id %>" enctype="multipart/form-data" method="post" id="update-profile-form">
-        <input type="file" name="avatar" placeholder="Profile picture" class="profiile-picture-uploader">
+        <input type="file" name="avatar" placeholder="Profile picture" class="profile-picture-uploader">
         <p>Update your Name : </p>
         <input type="text" name="name" placeholder="<%= profile_user.name %>" value="<%= profile_user.name %>" required>
         <p>Update your Email : </p>

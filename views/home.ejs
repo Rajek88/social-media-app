@@ -8,9 +8,11 @@
                 
                 <h1>Hi There ! <%= user.name %></h1>
 
-                <form action="/posts/create" method="POST" id="new-post-form" >
-                    <textarea name="content"  placeholder="What's on your mind ?" required></textarea>
-                    <button type="submit" value="Post"><i class="fas fa-paper-plane"></i></button>
+                <form action="/posts/create" method="post" id="new-post-form" >
+                    <textarea name="content" type="text" placeholder="What's on your mind ?" required></textarea>
+                    <label id="image-upload-btn" for="postPhoto"><i class="far fa-file-image"></i></label>
+                    <input type="file" name="postPhoto" id="postPhoto"  accept="image/x-png,image/gif,image/jpeg" />
+                    <button type="submit" value="Submit"><i class="fas fa-paper-plane"></i></button>
                 </form>
             <% } %>
         </section>
@@ -32,4 +34,34 @@
     </section>
 </div>
 
+<script>
+    //check if form has file uploaded, 
+    //if yse then put enctype as multipart, 
+    //else just send simple data
+    let newPostForm = document.querySelector('#new-post-form');
+    let inputFile = document.querySelector('#postPhoto');
+
+    newPostForm.addEventListener('submit', (event) => {
+        // stop form submission
+        event.preventDefault();
+        submitter();
+    });
+    function submitter(){
+        //when file is empty
+        if(inputFile.files.length == 0){
+            console.log('No file uploaded');
+            newPostForm.removeAttribute('enctype');
+            newPostForm.submit();
+        }
+        //when file is uploaded
+        else{
+            console.log('file uploaded');
+            newPostForm.setAttribute('enctype', 'multipart/form-data');
+            newPostForm.submit();
+
+        }
+    }
+
+
+</script>
 <!-- <script src="/js/home_posts.js"></script> -->

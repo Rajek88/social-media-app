@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
-const expressValidator = require('express-validator')
 
 const postsController = require('../controllers/posts_controller');
 

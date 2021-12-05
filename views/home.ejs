@@ -1,67 +1,86 @@
-<link rel="stylesheet" href="/css/home.css">
-<link rel="stylesheet" href="/css/posts.css">
+<link rel="stylesheet" href="/css/home.css" />
+<link rel="stylesheet" href="/css/posts.css" />
+<link rel="stylesheet" href="/css/chat-box.css" />
 
 <div class="home-container">
-    <section class="left-side">
-        <section id="feed-posts">
-            <% if(locals.user){ %>
-                
-                <h1>Hi There ! <%= user.name %></h1>
+  <section class="left-side">
+    <section id="feed-posts">
+      <% if(locals.user){ %>
 
-                <form action="/posts/create" method="post" id="new-post-form" >
-                    <textarea name="content" type="text" placeholder="What's on your mind ?" required></textarea>
-                    <label id="image-upload-btn" for="postPhoto"><i class="far fa-file-image"></i></label>
-                    <input type="file" name="postPhoto" id="postPhoto"  accept="image/x-png,image/gif,image/jpeg" />
-                    <button type="submit" value="Submit"><i class="fas fa-paper-plane"></i></button>
-                </form>
-            <% } %>
-        </section>
-        <hr style="color: #1a6eec; width: 90%; height: 1px; background: #1a6eec;">
-        <section id="all-posts">
-            <% for(let post of posts) { %>
-                <%- include('_post', { post : post })%>
-            <% } %>
-        </section>
-    </section>
+      <h1>Hi There ! <%= user.name %></h1>
 
-    <section id="user-list" class="right-side">
-        <h4>Top users</h4>
-        <% for( let user of all_users){ %>
-            <a style="color: rgb(68, 68, 68); text-decoration: none;" href="users/profile/<%= user.id %>" class="user-card">
-                <img src="<%= user.avatar %>" alt="<%= user.name %>"> &nbsp;<%= user.name %>
-            </a>
-        <% } %>
+      <form action="/posts/create" method="post" id="new-post-form">
+        <textarea
+          name="content"
+          type="text"
+          placeholder="What's on your mind ?"
+          required
+        ></textarea>
+        <label id="image-upload-btn" for="postPhoto"
+          ><i class="far fa-file-image"></i
+        ></label>
+        <input
+          type="file"
+          name="postPhoto"
+          id="postPhoto"
+          accept="image/x-png,image/gif,image/jpeg"
+        />
+        <button type="submit" value="Submit">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </form>
+      <% } %>
     </section>
+    <hr style="color: #1a6eec; width: 90%; height: 1px; background: #1a6eec" />
+    <section id="all-posts">
+      <% for(let post of posts) { %> <%- include('_post', { post : post })%> <%
+      } %>
+    </section>
+  </section>
+
+  <section id="user-list" class="right-side">
+    <h4>Top users</h4>
+    <% for( let user of all_users){ %>
+    <a
+      style="color: rgb(68, 68, 68); text-decoration: none"
+      href="users/profile/<%= user.id %>"
+      class="user-card"
+    >
+      <img src="<%= user.avatar %>" alt="<%= user.name %>" /> &nbsp;<%=
+      user.name %>
+    </a>
+    <% } %>
+    <br />
+
+    <%- include('chat_box') -%>
+  </section>
 </div>
 
 <script>
-    //check if form has file uploaded, 
-    //if yse then put enctype as multipart, 
-    //else just send simple data
-    let newPostForm = document.querySelector('#new-post-form');
-    let inputFile = document.querySelector('#postPhoto');
+  //check if form has file uploaded,
+  //if yse then put enctype as multipart,
+  //else just send simple data
+  let newPostForm = document.querySelector("#new-post-form");
+  let inputFile = document.querySelector("#postPhoto");
 
-    newPostForm.addEventListener('submit', (event) => {
-        // stop form submission
-        event.preventDefault();
-        submitter();
-    });
-    function submitter(){
-        //when file is empty
-        if(inputFile.files.length == 0){
-            console.log('No file uploaded');
-            newPostForm.removeAttribute('enctype');
-            newPostForm.submit();
-        }
-        //when file is uploaded
-        else{
-            console.log('file uploaded');
-            newPostForm.setAttribute('enctype', 'multipart/form-data');
-            newPostForm.submit();
-
-        }
+  newPostForm.addEventListener("submit", (event) => {
+    // stop form submission
+    event.preventDefault();
+    submitter();
+  });
+  function submitter() {
+    //when file is empty
+    if (inputFile.files.length == 0) {
+      console.log("No file uploaded");
+      newPostForm.removeAttribute("enctype");
+      newPostForm.submit();
     }
-
-
+    //when file is uploaded
+    else {
+      console.log("file uploaded");
+      newPostForm.setAttribute("enctype", "multipart/form-data");
+      newPostForm.submit();
+    }
+  }
 </script>
 <!-- <script src="/js/home_posts.js"></script> -->

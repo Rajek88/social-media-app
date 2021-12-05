@@ -6,6 +6,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
+  position: relative;
   //   border: 1px solid red;
 
   #chat-msg-list {
@@ -19,6 +20,7 @@
       text-decoration: none;
       list-style: none;
       padding: 5px;
+      margin-bottom: 5px;
     }
 
     #other-message {
@@ -36,7 +38,7 @@
 
   #chat-msg-input-container {
     position: sticky;
-    bottom: 0%;
+    bottom: 5%;
     width: 100%;
     padding: 0px 5px;
     display: flex;
@@ -44,6 +46,7 @@
     justify-content: space-between;
     align-items: center;
     border-radius: 20px;
+    background-color: white;
     // border: 1px solid green;
 
     input {

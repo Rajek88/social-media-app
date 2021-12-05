@@ -83,4 +83,16 @@
     }
   }
 </script>
+<script
+  src="https://cdn.socket.io/4.4.0/socket.io.min.js"
+  integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj"
+  crossorigin="anonymous"
+></script>
+<!-- here we use /js because its relative path when it loads on browser -->
+<script src="/js/chat_engine.js"></script>
+<% if(locals.user) { %>
+<script>
+  new ChatEngine("user-chat-box", "<%= locals.user._id %>");
+</script>
+<% } %>
 <!-- <script src="/js/home_posts.js"></script> -->

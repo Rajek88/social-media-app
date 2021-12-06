@@ -17,10 +17,26 @@
     align-items: center;
 
     li {
+      padding: 2px;
       text-decoration: none;
       list-style: none;
       padding: 5px;
       margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+
+      h4 {
+        margin-top: 3px;
+        margin-bottom: 0px;
+      }
+      p {
+        margin: 2px;
+      }
+      .time {
+        font-size: 12px;
+      }
     }
 
     #other-message {

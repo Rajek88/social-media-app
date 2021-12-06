@@ -56,6 +56,7 @@
   </section>
 </div>
 
+<% if(locals.user) { %>
 <script>
   //check if form has file uploaded,
   //if yse then put enctype as multipart,
@@ -90,9 +91,13 @@
 ></script>
 <!-- here we use /js because its relative path when it loads on browser -->
 <script src="/js/chat_engine.js"></script>
-<% if(locals.user) { %>
+
 <script>
-  new ChatEngine("user-chat-box", "<%= locals.user.email %>");
+  new ChatEngine(
+    "user-chat-box",
+    "<%= locals.user.email %>",
+    "<%= locals.user.name %>"
+  );
 </script>
 <% } %>
 <!-- <script src="/js/home_posts.js"></script> -->

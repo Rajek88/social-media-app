@@ -1,6 +1,7 @@
-function appender(message, data, userEmail) {
+function appender(message, data, userEmail, userName) {
   let newMessage = document.createElement("li");
-  newMessage.innerHTML = `<h4>${message}</h4>`;
+  newMessage.innerHTML = `<h4>${userName}</h4><p>${message}</p>
+  <p class="time">${new Date().toLocaleString()}</p>`;
   if (data.userEmail == userEmail) {
     newMessage.setAttribute("id", "my-message");
   } else {
@@ -13,9 +14,10 @@ function appender(message, data, userEmail) {
 }
 
 class ChatEngine {
-  constructor(chatBoxId, userEmail) {
+  constructor(chatBoxId, userEmail, userName) {
     this.chatBox = document.querySelector(`#${chatBoxId}`);
     this.userEmail = userEmail;
+    this.userName = userName;
     this.socket = io.connect("http://localhost:5000");
 
     if (this.userEmail) {
@@ -32,6 +34,7 @@ class ChatEngine {
 
       // emit an event on socket io with any relevant name
       self.socket.emit("join_room", {
+        userName: self.userName,
         userEmail: self.userEmail,
         chatRoom: "room-1",
       });
@@ -45,6 +48,7 @@ class ChatEngine {
       if (msg != "") {
         self.socket.emit("send_message", {
           message: msg,
+          userName: self.userName,
           userEmail: self.userEmail,
           chatRoom: "room-1",
         });
@@ -55,9 +59,9 @@ class ChatEngine {
     // create msg element annd append it to chatbox
 
     self.socket.on("receive_message", function (data) {
-      console.log("Message received : ", data.message);
+      console.log("Message received : ", data);
 
-      appender(data.message, data, self.userEmail);
+      appender(data.message, data, self.userEmail, data.userName);
     });
   }
 }

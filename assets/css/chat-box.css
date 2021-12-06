@@ -14,10 +14,22 @@
     justify-content: start;
     align-items: center; }
     #user-chat-box #chat-msg-list li {
+      padding: 2px;
       text-decoration: none;
       list-style: none;
       padding: 5px;
-      margin-bottom: 5px; }
+      margin-bottom: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start; }
+      #user-chat-box #chat-msg-list li h4 {
+        margin-top: 3px;
+        margin-bottom: 0px; }
+      #user-chat-box #chat-msg-list li p {
+        margin: 2px; }
+      #user-chat-box #chat-msg-list li .time {
+        font-size: 12px; }
     #user-chat-box #chat-msg-list #other-message {
       align-self: flex-start;
       background-color: #f0ffaf;

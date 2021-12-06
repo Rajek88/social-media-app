@@ -17,6 +17,18 @@ module.exports.ChatSocket = function (chatServer) {
       console.log("Disconnected the connection");
     });
 
+    socket.on("join_room", function (data) {
+      console.log("join room request data : ", data);
+
+      // now join the socket  to the chatroom
+      socket.join(data.chatRoom);
+
+      // now I want to show notification to users when I or anyone joins the room
+      // for that I need to emit an event inside the room, so :
+
+      io.in(data.chatRoom).emit("User joined", data);
+    });
+
     console.log("New connection received : ", socket.id);
   });
 };

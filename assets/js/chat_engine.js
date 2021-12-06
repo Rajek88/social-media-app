@@ -5,13 +5,22 @@ class ChatEngine {
     this.socket = io.connect("http://localhost:5000");
 
     if (this.userEmail) {
+      // console.log("Useremail for socket : ", userEmail);
       this.connectionHandler();
     }
   }
 
   connectionHandler() {
-    this.socket.on("connect", function () {
+    let self = this;
+
+    self.socket.on("connect", function () {
       console.log("Connection Established using sockets");
+
+      // emit an event on socket io with any relevant name
+      self.socket.emit("join_room", {
+        user_email: self.userEmail,
+        chatRoom: "room-1",
+      });
     });
   }
 }

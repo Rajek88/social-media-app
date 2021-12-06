@@ -30,5 +30,10 @@ module.exports.ChatSocket = function (chatServer) {
     });
 
     console.log("New connection received : ", socket.id);
+
+    // message handlers
+    socket.on("send_message", function (data) {
+      io.in(data.chatRoom).emit("receive_message", data);
+    });
   });
 };
